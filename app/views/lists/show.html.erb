@@ -1,20 +1,44 @@
- <h1> <%= @list.name %></h1>
-    <% @list.bookmarks.each do |bookmark| %>
-    <li> <%= bookmark.movie.title %> </li>
-    <li><%= link_to "Delete Moive from list", bookmark_path(bookmark),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-    <% end %>
+ <div class="banner">
+  <h1> <%= @list.name %></h1>
+ </div>
 
-<div>
-<h1>Add movie to list</h1>
+<div class="container-show">
+  <div class="card-movies-in-list">
+    <div class="card">
+      <div class="card-body">
+      <ul>
+      <% @list.bookmarks.each do |bookmark| %>
+          <li>
+           <%= bookmark.movie.title %> </li>
+           <%= link_to "Delete movie from list", bookmark_path(bookmark),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-danger btn-sm"%>
+           </li>
+          <% end %>
+        </ul>
+      <% if @list.photo.attached? %>
+      <div class="list-photo">
+        <%= image_tag @list.photo.variant(resize_to_fit: [800, 800]) %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  </div>
+
+<div class= "add-movie-form">
+<h3>Add a movie to this list</h3>
 <%= simple_form_for [@list, Bookmark.new] do |f| %>
   <%= f.input :comment, placeholder: "Enter a comment about the movie" %>
   <%= f.association :movie, prompt: "Select a movie", input_html: {data: {controller: "tom-select"}} %>
-  <%= f.submit "Add to list", class: "btn btn-flat" %>
+  <%= f.submit "Add to list", class: "btn btn-outline-success btn-sm" %>
 <% end %>
+</div>
+
 <div>
+
 
 <ul>
   <li><%= link_to "Back to Lists", root_path%></li>
   <%# <li><%= link_to "Add a movie to list",new_list_bookmark_path(@list) %></li>
   <li><%= link_to "Delete List", list_path(@list),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
    </ul>
+</div>
+</div>

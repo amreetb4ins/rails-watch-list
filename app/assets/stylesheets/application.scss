@@ -11,6 +11,95 @@
 @import "components/index";
 @import "pages/index";
 
-h1 {
-  color:red;
+
+
+.banner {
+  background-image: asset-url('cinema.jpeg');
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  font-family: $headers-font;
+}
+
+
+.container-index{
+  background-color: white;
+  padding:30px;
+  .btn {
+    color:white;
+  }
+}
+
+.my-lists{
+  background-color: white;
+  display: flex;             /* Activate flexbox layout */
+  justify-content: space-between; /* Space out items evenly */
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 5px;
+}
+
+.list-cards {
+  display: flex;                     /* Enable flexbox */
+  flex-wrap: wrap;                  /* Allow wrapping to the next row */
+  justify-content: space-between;   /* Space out the cards evenly */
+  list-style-type: none;            /* Remove default list styling */
+  padding: 0;
+}
+
+.card-list-item {
+  flex: 1 1 calc(33.33% - 20px);    /* Flex-grow, flex-shrink, and basis for equal sizing */
+  margin: 10px;                     /* Space between cards */
+  max-width: calc(33.33% - 20px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+
+  .card {
+    height: 200px;
+    background-color: #fdd790;
+    border-radius: 5px;
+    width: 200px;
+    margin-left: 20px;
+  }
+
+  .card-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    text-decoration: none;
+  }
+  .card-img-top {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.container-show{
+  background-color: fffff;
+  padding: 20px;
+  list-style: none;
+}
+
+.card li{
+  list-style: none;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.add-movie-form{
+  background-color: 88888;
+  border: 1px solid black;
+  margin-top: 10px;
+  padding:10px;
 }

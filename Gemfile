@@ -25,7 +25,7 @@ gem "simple_form"
 gem "sassc-rails"
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main'
 gem "dotenv-rails"
-
+gem "cloudinary"
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
@@ -62,3 +62,4 @@ end
 
 gem 'rspec-rails', group: [ :test ]
 gem 'rails-controller-testing', group: [ :test ]
+gem 'image_processing', '~> 1.2'
